@@ -1,0 +1,48 @@
+<div class="continer-flud">
+  <h1>HEMADRI Technologies</h1>
+  <form #userForm="ngForm">
+
+    {{ userForm.value | json }}
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" name="username" ngModel  required><br/>
+      
+    </div><br/>
+    <div class="form-group">
+      <label>email</label>
+      <input type="email" class="form-control"  name="email" ngModel  required>
+    </div><br/>
+
+
+    <div class="form-group">
+      <label>phone</label>
+      <input type="tel" class="form-control"  name="phone" ngModel pattern="^\d{10}$" required>
+    </div><br/>
+    <div class="form-group">
+      <select class="custom-select">
+        <option selected>your intersted subjet</option>
+        <option *ngFor="let course of courses">{{course}}</option>
+
+      </select>
+    </div><br/>
+  <div class="mb-3">
+      <label>Timings</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="time prefered" value="morning" ngModel >
+        <label class="form-check-lable">morning (9-12 am)</label>
+      </div><br/>
+      
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="time prefered" value="evening" ngModel >
+        <label class="form-check-lable">evening (5-8 pm)</label>
+      </div><br/>
+    </div><br/>
+    <button [disabled]="userForm.form.invalid
+    " class="btn btn-primary" type="submit">submit</button>
+    
+
+
+  </form>
+</div>
